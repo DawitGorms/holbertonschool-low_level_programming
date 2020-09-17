@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - displays all single digit numbers starting fromm 0,
+ * main - displays all single digit numbers starting from 0,
  * with putchar()
  *
  * Return: always 0 (success)
@@ -10,10 +10,10 @@
 
 int main(void)
 {
-	char c;
+	int i;
 
-	for (c = '0'; c <= '9'; c++)
-		putchar(c);
+	for (i = '0'; i <= '9'; i++)
+		putchar(i);
 	putchar('\n');
 	return (0);
 }
