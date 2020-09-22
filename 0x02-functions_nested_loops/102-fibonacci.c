@@ -24,7 +24,7 @@ int main(void)
 {
 	long ct;
 
-	for (ct = 2; ct < 20; ct++)
+	for (ct = 2; ct < 50; ct++)
 		printf("%ld, ", fibonacci(ct));
 	printf("%ld\n", fibonacci(ct));
 	return (0);
