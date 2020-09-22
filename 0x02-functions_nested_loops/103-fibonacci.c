@@ -8,20 +8,21 @@
  */
 int main(void)
 {
-	long n, n0, n1;
+	long fn, fn2, fn1, sum;
 
-	n = 0;
-	n0 = 0;
-	n1 = 1;
+	fn = 0;
+	fn2 = 0;
+	fn1 = 1;
+	sum = 0;
 
-	while (n < 4000000)
+	while (fn < 4000000)
 	{
-		n = n0 + n1;
-		if (n % 2 == 0)
-			printf("%ld, ", n);
-		n0 = n1;
-		n1 = n;
+		fn = fn2 + fn1;
+		if (fn % 2 == 0)
+			sum += fn;
+		fn2 = fn1;
+		fn1 = fn;
 	}
-	printf("\n");
+	printf("%lu\n", sum);
 	return (0);
 }

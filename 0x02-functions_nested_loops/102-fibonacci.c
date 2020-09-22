@@ -9,19 +9,19 @@
 int main(void)
 {
 	int i;
-	long n, n0, n1;
+	long f, f0, f1;
 
-	n0 = 0;
-	n1 = 1;
-	printf("%ld, ", n0);
-	printf("%ld, ", n1);
+	fn2 = 0;
+	fn1 = 1;
+	printf("%lu, ", fn2);
+	printf("%lu, ", fn1);
 
 	for (i = 2; i <= 50; i++)
 	{
-		n = n0 + n1;
-		printf("%ld, ", n);
-		n0 = n1;
-		n1 = n;
+		f = fn2 + fn1;
+		printf("%lu, ", f);
+		fn2 = fn1;
+		fn1 = fn;
 	}
 	printf("\n");
 	return (0);

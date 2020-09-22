@@ -14,10 +14,8 @@ int main(void)
 
 	r = 0;
 	for (i = 1; i < 1024; i++)
-		if ((i % 3) == 0)
-			r = r + i;
-		else if ((i % 5) == 0)
-			r = r + i;
+		if ((i % 3) == 0 || (i % 5) == 0)
+			r += i;
 	printf("%i\n", r);
-	return (r);
+	return (0);
 }
