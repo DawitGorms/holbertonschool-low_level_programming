@@ -4,7 +4,7 @@
  * main - prints the numbers from 1 to 100,
  * if multiple of 3 print Fizz,
  * if multiple of 5 print Buzz,
- * if multiple of both pri,t FizzBuzz.
+ * if multiple of both print FizzBuzz.
  *
  * Return: return 0.
  */
@@ -23,6 +23,6 @@ int main(void)
 		else
 			printf("%d ", i);
 	}
-	putchar('Buzz\n');
+	printf("Buzz\n");
 	return (0);
 }
