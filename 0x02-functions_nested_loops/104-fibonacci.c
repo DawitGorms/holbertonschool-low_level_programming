@@ -2,9 +2,7 @@
 #define N 1000000000
 
 /**
- * main - finds and prints the sum of the even-valued terms
- * followed by a new line.
- *
+ * main - finds and prints the first 98 Fibonacci numbers
  * Return: always 0 (success)
  */
 int main(void)
@@ -21,7 +19,7 @@ int main(void)
 
 	for (seq = 4; seq < 47; seq++)
 	{
-		printf("%09lu, ", fn);
+		printf("%lu, ", fn);
 		fn2 = fn1;
 		fn1 = fn;
 		fn = fn2 + fn1;
