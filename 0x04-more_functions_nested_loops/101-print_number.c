@@ -8,8 +8,8 @@
  */
 void print_number(int n)
 {
-	int index, remain, u;
-	char num[20];
+	int index, remain;
+	char num[5];
 
 	if (n == 0)
 		_putchar('0');
@@ -18,18 +18,14 @@ void print_number(int n)
 		remain = (n < 0) ? -n : n;
 		for (index = 0; remain > 0; index++)
 		{
-			u = remain % 10;
-			num[index] = u + 48;
-			remain = remain / 10;
+			num[index] = (remain % 10) + 48;
+			remain /= 10;
 		}
 		num[index] = 0;
 
 		if (n < 0)
 			_putchar('-');
-		while (index >= 0)
-		{
+		for (; index >= 0; index--)
 			_putchar(num[index]);
-			index--;
-		}
 	}
 }
