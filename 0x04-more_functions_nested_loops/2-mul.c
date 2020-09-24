@@ -2,8 +2,9 @@
 
 /**
  * mul - multiplies two integers
- * @a, @b: integers to multiply
- * Return: the result
+ * @a: first integer,
+ * @b: second integer
+ * Return: a * b
  */
 int mul(int a, int b)
 {
