@@ -15,5 +15,5 @@ void print_number(int n)
 		_putchar('-');
 	if (m / 10)
 		print_number(m / 10);
-	_putchar(m % 10 + 48);
+	_putchar(m % 10 + '0');
 }
