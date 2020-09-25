@@ -31,21 +31,26 @@ void print_number(int n)
 	int p, r;
 	unsigned int nb;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		nb = -n;
-	}
+	if (n == 0)
+		_putchar(48);
 	else
-		nb = n;
-
-	p = len_number(nb);
-
-	while (nb)
 	{
-		r = nb / p;
-		_putchar(r + 48);
-		nb -= r * p;
-		p /= 10;
+		if (n < 0)
+		{
+			_putchar('-');
+			nb = -n;
+		}
+		else
+			nb = n;
+
+		p = len_number(nb);
+
+		while (nb)
+		{
+			r = nb / p;
+			_putchar(r + 48);
+			nb -= r * p;
+			p /= 10;
+		}
 	}
 }
