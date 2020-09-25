@@ -1,25 +1,51 @@
 #include "holberton.h"
 
 /**
+ * len_number - gets the power of the parameter
+ * @n: entry parameter
+ * Return: 10 times the number
+ */
+
+int len_number(int n)
+{
+	int i = n;
+	int power = 1;
+
+	while (i)
+	{
+		power *= 10;
+		i /= 10;
+	}
+	return (power / 10);
+}
+
+/**
  * print_number - prints a number with only _putchar,
  * long not allowed.
  * @n: number to be printed.
  * Return: void.
  */
+
 void print_number(int n)
 {
-	unsigned int m;
+	int p, r;
+	unsigned int nb;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		m = -n;
+		nb = -n;
 	}
 	else
-		m = n;
+		nb = n;
 
-	if (m / 10)
-		print_number(m / 10);
+	p = len_number(nb);
 
-	_putchar(m % 10 + '0');
+	while (nb)
+	{
+		r = nb / p;
+		_putchar(r + 48);
+		nb -= r * p;
+		p /= 10;
+	}
 }
