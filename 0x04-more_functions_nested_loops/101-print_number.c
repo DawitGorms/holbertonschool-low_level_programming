@@ -1,56 +1,50 @@
 #include "holberton.h"
 
 /**
- * len_number - gets the power of the parameter
- * @n: entry parameter
- * Return: 10 times the number
- */
-
-int len_number(int n)
-{
-	int i = n;
-	int power = 1;
-
-	while (i)
-	{
-		power *= 10;
-		i /= 10;
-	}
-	return (power / 10);
-}
-
-/**
  * print_number - prints a number with only _putchar,
  * long not allowed.
+ *
+ * The variable p will be used as a pointer
+ * to get the first number on the right
+ * to be printed.
+ *
+ * At each iteration p will divided by 10
+ * to get the next number to be printed
+ * until there is none.
+ *
+ * If the number is negative, the commands
+ * will be only be run on the first iteration.
+ * Since 'n' is turn to a positive number there.
+ * The reason why this sign changing is not done
+ * outside of the while loop is because one cannot
+ * change sign to INT_MIN, which is in its absolute
+ * value is higher than INT_MAX.
  * @n: number to be printed.
  * Return: void.
  */
 
 void print_number(int n)
 {
-	int p, r;
-	unsigned int nb;
+	int p, nb;
 
-	if (n == 0)
-		_putchar(48);
-	else
+	p = 1;
+	while (n / p >= 10 || n / p <= -10)
+		p *= 10;
+
+	while (p)
 	{
-		if (n < 0)
+		nb = n / p;
+		if (nb < 0)
 		{
 			_putchar('-');
-			nb = -n;
+			_putchar('0' - nb);
+			n = -(n - nb * p);
 		}
 		else
-			nb = n;
-
-		p = len_number(nb);
-
-		while (nb)
 		{
-			r = nb / p;
-			_putchar(r + 48);
-			nb -= r * p;
-			p /= 10;
+			_putchar('0' + nb);
+			n = n - nb * p;
 		}
+		p /= 10;
 	}
 }
