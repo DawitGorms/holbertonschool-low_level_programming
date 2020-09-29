@@ -16,8 +16,7 @@ int _atoi(char *s)
 		if (s[i] == '-')
 			sign *= -1;
 
-	r = 0;
-	for (; (s[i] >= '0' && s[i] <= '9'); i++)
+	for (r = 0; (s[i] >= '0' && s[i] <= '9'); i++)
 		r = r * 10 + (s[i] - '0');
 
 	return (sign * r);
