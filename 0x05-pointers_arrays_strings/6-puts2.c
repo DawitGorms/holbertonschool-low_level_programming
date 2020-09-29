@@ -31,8 +31,7 @@ void puts2(char *str)
 	sl = _strlen(str);
 
 	for (i = 0; i < sl; i += 2)
-	{
 		_putchar(str[i]);
-		_putchar('\n');
-	}
+
+	_putchar('\n');
 }

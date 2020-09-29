@@ -10,7 +10,7 @@ int _strlen(char *s)
 {
 	int c;
 
-	for (c = 0; *s != 0; c++)
+	for (c = 0; *s; c++)
 		s++;
 
 	return (c);
@@ -24,11 +24,20 @@ int _strlen(char *s)
  */
 void print_rev(char *s)
 {
-	int l;
+	char *z;
+	int i, sl;
 
-	for (l = _strlen(s); l != 0; l--)
-		_putchar(*(s + l));
+	z = s;
+	sl = _strlen(s) - 1;
 
-	_putchar(*s);
+	for (i = 0; i < sl; i++)
+		z++;
+
+	for (; i; i--)
+	{
+		_putchar(*z);
+		z--;
+	}
+	_putchar(*z);
 	_putchar('\n');
 }
