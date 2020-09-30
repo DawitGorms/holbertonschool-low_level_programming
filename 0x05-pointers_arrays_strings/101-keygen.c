@@ -12,7 +12,7 @@ int main(void)
 {
 	char set[63] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char gen_key[100];
-	int chksum = 2772; i = 0, key  = 0, sum = 0;
+	int chksum = 2772, i = 0, key  = 0, sum = 0;
 
 	srand(time(NULL));
 
