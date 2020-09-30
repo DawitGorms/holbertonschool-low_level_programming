@@ -1,40 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <time.h>
 
-int main()
+/**
+ * main - entry point to keygen
+ *
+ * Return: 0
+ */
+
+int main(void)
 {
-	srand((unsigned int)(time(NULL)));
-	int i;
-	char pass[12];
+	char set[63] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char gen_key[100];
+	int chksum = 2772; i = 0, key  = 0, sum = 0;
 
-	printf("Press enter to get a twelve-character password\n");
-	getchar();
+	srand(time(NULL));
 
-	for (i = 0; i < 4; i++) {
-		pass[i] = rand() % 9;
-		char capLetter = 'A' + (rand() % 26);
-		pass[i + 2] = capLetter;
-		char letter = 'a' + (rand() % 26);
-		pass[i + 3] = letter;
-		printf("%d%c%c", pass[i], pass[i + 2], pass[i + 3]);
+	for (; sum < (chksum - 'z'); i++)
+	{
+		key = rand() % 62;
+		gen_key[i] = set[key];
+		sum += gen_key[i];
 	}
-	printf("\n\n");
-}
+	gen_key[i] = chksum - sum;
+	gen_key[i + 1] = '\0';
 
-
-char array[63] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-char password[100];
-srand(time(NULL));
-sum = 0;
-i = 0;
-while (sum < (2772 - 122))
-{
-	r = rand() % 62;
-	password[i] = array[r];
-	sum = sum + password[i];
-	i++;
+	printf("%s", gen_key);
+	return (0);
 }
-r = 2772 - sum;
-password[i] = r;
