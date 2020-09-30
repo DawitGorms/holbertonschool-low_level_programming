@@ -38,6 +38,7 @@ void print_rev(char *s)
 		_putchar(*z);
 		z--;
 	}
-	_putchar(*z);
+	if (sl > 0)
+		_putchar(*z);
 	_putchar('\n');
 }
