@@ -16,7 +16,7 @@ int main(void)
 
 	srand(time(NULL));
 
-	for (; sum < (chksum - 'z'); i++)
+	for (; sum < (chksum - 123); i++)
 	{
 		key = rand() % 62;
 		gen_key[i] = set[key];
