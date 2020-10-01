@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * _strncpy - copies a string
@@ -10,28 +11,14 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *tsrc = src, *tdst = dest;
-	int i, j, k;
+	char *tdst = dest;
+	int i;
 
-	for (i = 0; *tsrc; i++)
-		tsrc++;
+	for (i = 0; i < n && *src; i++)
+		tdst[i] = src[i];
 
-	for (j = 0; *tdst; j++)
-		tdst++;
+	for (; i < n; i++)
+		tdst[i] = '\0';
 
-	tdst = dest;
-	if (n > 0 && n <= i)
-	{
-		n = (n <= j) ? n : j;
-		for (k = 0; n > 0 && *src; k++)
-		{
-			*tdst = *src;
-			tdst++;
-			src++;
-			n--;
-		}
-		for (; k < n; k++)
-			*tdst = '\0';
-	}
 	return (dest);
 }
