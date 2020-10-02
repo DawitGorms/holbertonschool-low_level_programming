@@ -1,11 +1,11 @@
 #include "holberton.h"
 
 /**
- * rot13: encodes a string with rot13.
+ * rot13 - encodes a string with rot13.
  * @s: pointer of the input string
  *
  * Return: char
-  */
+ */
 
 char *rot13(char *s)
 {
@@ -18,7 +18,10 @@ char *rot13(char *s)
 	{
 		for (i = 0; alpha[i]; i++)
 			if (*c == alpha[i])
+			{
 				*c = encode[i];
+				break;
+			}
 		c++;
 	}
 	return (s);
