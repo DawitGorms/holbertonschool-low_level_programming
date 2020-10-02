@@ -27,7 +27,7 @@ void print_buffer(char *b, int size)
 			for (idx = 0; idx < 10; idx++)
 			{
 				c = *(b + start + idx);
-				if (c < 32 ||c == 126)
+				if (c < 32 || c == 126)
 					c = 46;
 				printf("%c", c);
 			}
