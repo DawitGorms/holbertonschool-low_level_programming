@@ -70,7 +70,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		p2 = n2l > 0 ? (*(n2 + n2l - 1) - '0') : 0;
 		sum = p1 + p2;
 		*(bfr + idx) = ((sum + rdr) % 10) + '0';
-		rdr = sum / 10;
+		rdr = (sum + rdr) / 10;
 		idx++;
 		n1l--;
 		n2l--;
