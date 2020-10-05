@@ -1,7 +1,8 @@
 #include "holberton.h"
 
 /**
- * _strpbrk - searches a string for any of a set of bytes.
+ * _strpbrk - finds the first character in the string s
+ * that matches any character specified in accept.
  * @s: the string to be scanned
  * @accept: the string containing the list of characters to match in s.
  * Return: a pointer to the character in str1 that matches
@@ -10,24 +11,12 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int idx, match;
+	int idx;
 
 	for (; *s; s++)
-	{
-		match = 0;
 		for (idx = 0; *(accept + idx); idx++)
-		{
 			if (*s == *(accept + idx))
-			{
-				match = 1;
-				break;
-			}
-		}
-		if (match)
-			break;
-	}
-	if (match)
-		return (s);
-	else
-		return (0);
+				return (s);
+
+	return (0);
 }
