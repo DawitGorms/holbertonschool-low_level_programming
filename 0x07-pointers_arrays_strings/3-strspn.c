@@ -1,17 +1,24 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * _isalpha - returns 1 if c is letter, 0 otherwise
- * @c: integer to be tested
- * Return: 1 or 0
+ * _strchr - locates a character in a string.
+* @s: the string
+* @c: the character
+* Return: a pointer to the first occurence or NULL if not found.
  */
 
-int _isalpha(int c)
+char *_strchr(char *s, char c)
 {
-	return ((c >= 97 && c <= 122) || (c >= 65 && c <= 90));
+	while (*s)
+	{
+		if (*s == c)
+			return (s);
+		s++;
+	}
+	if (*s == c)
+		return (s);
+	return (0);
 }
-
 
 /**
  * _strspn - gets the length of a prefix substring.
@@ -23,24 +30,13 @@ int _isalpha(int c)
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int cnt, idx, match;
+	unsigned int ctr = 0;
 
-	for (cnt = 0; _isalpha(*(s + cnt)); cnt++)
-	{
-		match = 0;
-		for (idx = 0; _isalpha(*(accept + idx)); idx++)
-		{
-			if (*(s + cnt) == *(accept + idx))
-			{
-				match = 1;
-				break;
-			}
-		}
-		if (!match)
+	while (*(s + ctr))
+		if (_strchr(accept, *(s + ctr)))
+			ctr++;
+		else
 			break;
-	}
-	if (!match)
-		return (0);
-	else
-		return (cnt);
+
+	return (ctr);
 }
