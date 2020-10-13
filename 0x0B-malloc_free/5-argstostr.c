@@ -28,12 +28,10 @@ int _strlen(char *s)
 char *argstostr(int ac, char **av)
 {
 	char *nstr;
-	int icc, idx, jdx, len;
+	int istr, idx, jdx, len;
 
 	if (!ac || !av)
-	{
 		return (NULL);
-	}
 
 	for (idx = 0, len = 0; idx < ac; idx++)
 		len += _strlen(av[idx]) + 1;
@@ -42,12 +40,12 @@ char *argstostr(int ac, char **av)
 	if (nstr == NULL)
 		return (NULL);
 
-	for (icc = 0, idx = 0; idx < ac; idx++)
+	for (istr = 0, idx = 0; idx < ac; idx++)
 	{
-		for (jdx = 0; av[idx][jdx]; jdx++, icc++)
-			nstr[icc] = av[idx][jdx];
-		nstr[icc++] = '\n';
+		for (jdx = 0; av[idx][jdx]; jdx++, istr++)
+			nstr[istr] = av[idx][jdx];
+		nstr[istr++] = '\n';
 	}
-	nstr[icc] = '\0';
+	nstr[istr] = '\0';
 	return (nstr);
 }
