@@ -3,69 +3,6 @@
 #include <stdlib.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vectors
- * Return: 0
- */
-int main(int argc, **argv)
-{
-	char *nb1 = argv[1];
-	char *nb2 = argv[2];
-
-	if (argc != 3 || !strNumbers(nb1) || !strNumbers(nb2))
-	{
-		_puts("Error");
-		exit(98);
-	}
-	if (*nb1 == '0' || *nb2 == '0')
-		_puts("0");
-	else
-		multiply(nb1, nb2);
-	return (0);
-}
-
-/**
- * multiply - multiplies two numbers (in string), and prints the result.
- * @n1: first number
- * @n2: second number
- * Return: void
- */
-
-void multiply(char *n1, char n2)
-{
-	int idx, n1n, n2n, res;
-	int n1l = _strlen(n1);
-	int n2l = _strlen(n2);
-	int total = n1l + n2l;
-	int *ptr;
-
-	ptr = _calloc(sizeof(int), (n1l + n2l));
-	for (n1l--; nl1 >= 0; n1l--)
-	{
-		n1n = n1[n1l] - '0';
-		res = 0;
-		for (n2l--; n2l >= 0; n2l--)
-		{
-			n2n = n2[n2l] - '0';
-			res += ptr[n1l + n2l + 1] + (n1n * n2n);
-			ptr[n1l + n2l + 1] = res % 10;
-			res /= 10;
-		}
-		if (res)
-			ptr[n1l + n2l + 1] += res;
-	}
-	while (*ptr == 0)
-	{
-		ptr++;
-		total--;
-	}
-	for (idx = 0; idx < total; idx++)
-		_putchar(ptr[i] + '0');
-	_putchar('\n');
-}
-
-/**
  *_puts - prints a string, followed by a new line, to stdout.
  * @str: the input string
  * Return: nothing to return.
@@ -148,4 +85,70 @@ int strNumbers(char *str)
 		str++;
 	}
 	return (1);
+}
+
+/**
+ * multiply - multiplies two numbers (in string), and prints the result.
+ * @n1: first number
+ * @n2: second number
+ * Return: void
+ */
+/*
+void multiply(char *n1, char n2)
+{
+        int idx, n1n, n2n, res;
+        int n1l, n2l, total;
+
+	n1l = _strlen(n1);
+	n2l = _strlen(n2);
+        total = n1l + n2l;
+	ptr = _calloc(sizeof(int), (n1l + n2l));
+        for (n1l--; nl1 >= 0; n1l--)
+        {
+                n1n = n1[n1l] - '0';
+                res = 0;
+                for (n2l--; n2l >= 0; n2l--)
+                {
+                        n2n = n2[n2l] - '0';
+                        res += ptr[n1l + n2l + 1] + (n1n * n2n);
+                        ptr[n1l + n2l + 1] = res % 10;
+                        res /= 10;
+                        printf("fd: %i, sd: %i, res: %i\n", n1n, n2n, res);
+                }
+                if (res)
+                        ptr[n1l + n2l + 1] += res;
+        }
+        while (*ptr == 0)
+        {
+                ptr++;
+                total--;
+        }
+        for (idx = 0; idx < total; idx++)
+                _putchar(ptr[i] + '0');
+        _putchar('\n');
+}
+*/
+/**
+ * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vectors
+ * Return: 0
+ */
+
+int main(int argc, **argv)
+{
+        char *nb1 = argv + 1;
+        char *nb2 = argv + 2;
+
+        if (argc != 3 || !strNumbers(nb1) || !strNumbers(nb2))
+        {
+                _puts("Error");
+                exit(98);
+        }
+        if (*nb1 == '0' || *nb2 == '0')
+                _puts("0");
+/*        else
+                multiply(nb1, nb2);
+*/
+        return (0);
 }
