@@ -22,9 +22,8 @@ int *array_range(int min, int max)
 	if (!ptr)
 		return (NULL);
 
-	for (idx = 0; idx <= len; idx++)
+	for (idx = 0; idx < len; idx++)
 		ptr[idx] = min++;
 
-	ptr[idx] = '\0';
 	return (ptr);
 }
