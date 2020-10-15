@@ -3,19 +3,18 @@
 #include <stdlib.h>
 
 /**
- *_puts - prints a string, followed by a new line, to stdout.
- * @str: the input string
- * Return: nothing to return.
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
  */
-	void _puts(char *str)
-	{
-		while (*str != 0)
-		{
-			_putchar(*str);
-			str++;
-		}
-		_putchar('\n');
-	}
+int _strlen(char *s)
+{
+	char *p = s;
+
+	while (*s)
+		s++;
+	return (s - p);
+}
 
 /**
  * _memset - fills memory with a constant byte.
@@ -57,18 +56,18 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 }
 
 /**
- *_strlen - counts and reutns string length
- * @s: the input string
- * Return: the length
+ *_puts - prints a string, followed by a new line, to stdout.
+ * @str: the input string
+ * Return: nothing to return.
  */
-int _strlen(char *s)
+void _puts(char *str)
 {
-	int c = 0;
-
-	for (c = 0; *s; c++)
-		s++;
-
-	return (c);
+	while (*str != 0)
+	{
+		putchar(*str);
+		str++;
+	}
+	putchar('\n');
 }
 
 /**
@@ -93,62 +92,61 @@ int strNumbers(char *str)
  * @n2: second number
  * Return: void
  */
-/*
-void multiply(char *n1, char n2)
-{
-        int idx, n1n, n2n, res;
-        int n1l, n2l, total;
 
-	n1l = _strlen(n1);
-	n2l = _strlen(n2);
-        total = n1l + n2l;
+void multiply(char *n1, char *n2)
+{
+	int idx, n1n, n2n, res, tmp, total;
+	int n1l = _strlen(n1);
+	int n2l = _strlen(n2);
+
+	int *ptr;
+
+	tmp = n2l;
+	total = n1l + n2l;
 	ptr = _calloc(sizeof(int), (n1l + n2l));
-        for (n1l--; nl1 >= 0; n1l--)
-        {
-                n1n = n1[n1l] - '0';
-                res = 0;
-                for (n2l--; n2l >= 0; n2l--)
-                {
-                        n2n = n2[n2l] - '0';
-                        res += ptr[n1l + n2l + 1] + (n1n * n2n);
-                        ptr[n1l + n2l + 1] = res % 10;
-                        res /= 10;
-                        printf("fd: %i, sd: %i, res: %i\n", n1n, n2n, res);
-                }
-                if (res)
-                        ptr[n1l + n2l + 1] += res;
-        }
-        while (*ptr == 0)
-        {
-                ptr++;
-                total--;
-        }
-        for (idx = 0; idx < total; idx++)
-                _putchar(ptr[i] + '0');
-        _putchar('\n');
+	for (n1l--; n1l >= 0; n1l--)
+	{
+		n1n = n1[n1l] - '0';
+		res = 0;
+		n2l = tmp;
+		for (n2l--; n2l >= 0; n2l--)
+		{
+			n2n = n2[n2l] - '0';
+			res += ptr[n1l + n2l + 1] + (n1n * n2n);
+			printf("n1n: %i, n2n: %i, res: %i\n", n1n, n2n, res);
+			ptr[n1l + n2l + 1] = res % 10;
+			res /= 10;
+		}
+	}
+	for (idx = 0; idx < total; idx++)
+		putchar(ptr[idx]);
+	putchar('\n');
+	free(ptr);
 }
-*/
+
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vectors
+ * main - adds positive numbers.
+ * @argc: the number of arguments
+ * @argv: the arguments
+ *
  * Return: 0
  */
 
-int main(int argc, **argv)
+int main(int argc, char **argv)
 {
-        char *nb1 = argv + 1;
-        char *nb2 = argv + 2;
+	char *nb1 = argv[1];
+	char *nb2 = argv[2];
 
-        if (argc != 3 || !strNumbers(nb1) || !strNumbers(nb2))
-        {
-                _puts("Error");
-                exit(98);
-        }
-        if (*nb1 == '0' || *nb2 == '0')
-                _puts("0");
-/*        else
-                multiply(nb1, nb2);
-*/
-        return (0);
+	if (argc != 3 || !strNumbers(nb1) || !strNumbers(nb2))
+	{
+		_puts("Error");
+		exit(98);
+	}
+	if (*nb1 == '0' || *nb2 == '0')
+		_puts("0");
+	else
+	{
+		multiply(nb1, nb2);
+	}
+	return (0);
 }
