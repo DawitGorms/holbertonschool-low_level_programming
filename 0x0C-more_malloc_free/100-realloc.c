@@ -7,6 +7,7 @@
  * @dest: the memory area to be filled
  * @src: the origin memery area
  * @n: number of bytes to copy
+ *
  * Return: a pointer to the memory area dest.
  */
 
@@ -32,25 +33,32 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *nptr;
-	int idx;
 
 	if (new_size == old_size)
 		return (ptr);
 
-	if ((new_size == 0) && ptr != NULL)
+	if ((new_size == 0) && ptr)
 	{
-                free(ptr);
+		free(ptr);
 		return (NULL);
+	}
+
+	if (!ptr)
+	{
+		free(ptr);
+		nptr = malloc(new_size);
+		if (!nptr)
+			return (NULL);
+		return (nptr);
 	}
 
 	if (new_size > old_size)
 	{
-		nptr = malloc(new_size * sizeof(char));
-                if (*nptr == NULL)
-                        return (NULL);
+		nptr = malloc(new_size);
+		if (!nptr)
+			return (NULL);
 
-		for (idx = 0; idx <= old_size; idx++)
-			nptr[idx] = ptr[idx];
+		_memcpy(nptr, ptr, old_size);
 		free(ptr);
 	}
 	return (nptr);
