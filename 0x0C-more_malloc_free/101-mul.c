@@ -17,6 +17,24 @@ int _strlen(char *s)
 }
 
 /**
+ * _memset - fills memory with a constant byte.
+ * @s: the memory area to be filled
+ * @b: the constant byte
+ * @n: number of bytes to fill with char b
+ * Return: a pointer to the memory area s.
+ */
+
+char *_memset(char *s, char b, unsigned int n)
+{
+	char *p = s;
+
+	for (; n; n--)
+		*p++ = b;
+
+	return (s);
+}
+
+/**
  * _calloc - allocates memory for an array
  * @nmemb: number of elements
  * @size: of each element
@@ -34,8 +52,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (ptr == NULL)
 		return (NULL);
 
-	for (idx = 0; idx < nmemb * size ; idx++)
-		*((char *)ptr + idx) = 0;
+	_memset(ptr, 0, size * nmemb);
 
 	return (ptr);
 }
@@ -104,9 +121,17 @@ void multiply(char *n1, char *n2)
 		if (res)
 			ptr[n1l + n2l + 1] = res % 10;
 	}
+	res = 0;
 	for (idx = 0; idx < total; idx++)
-		if (ptr[idx] > 0)
+	{
+		if (ptr[idx] == 0 && res == 1)
 			_putchar(ptr[idx] + '0');
+		else if (ptr[idx] > 0)
+		{
+			_putchar(ptr[idx] + '0');
+			res = 1;
+		}
+	}
 	_putchar('\n');
 	free(ptr);
 }
