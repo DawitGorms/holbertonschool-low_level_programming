@@ -120,7 +120,8 @@ void multiply(char *n1, char *n2)
 			ptr[n1l + n2l + 1] = res % 10;
 	}
 	for (idx = 0; idx < total; idx++)
-		_putchar(ptr[idx]);
+		if (ptr[idx] > 0)
+			_putchar(ptr[idx] + '0');
 	_putchar('\n');
 	free(ptr);
 }
