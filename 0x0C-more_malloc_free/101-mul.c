@@ -121,7 +121,6 @@ void multiply(char *n1, char *n2)
 		if (res)
 			ptr[n1l + n2l + 1] = res % 10;
 	}
-	res = 0;
 	for (idx = 0; idx < total; idx++)
 	{
 		if (ptr[idx] == 0 && res == 1)
