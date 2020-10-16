@@ -64,10 +64,10 @@ void _puts(char *str)
 {
 	while (*str != 0)
 	{
-		putchar(*str);
+		_putchar(*str);
 		str++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
 
 /**
@@ -103,7 +103,7 @@ void multiply(char *n1, char *n2)
 
 	tmp = n2l;
 	total = n1l + n2l;
-	ptr = _calloc(sizeof(int), (n1l + n2l));
+	ptr = _calloc(total, sizeof(int));
 	for (n1l--; n1l >= 0; n1l--)
 	{
 		n1n = n1[n1l] - '0';
@@ -113,14 +113,15 @@ void multiply(char *n1, char *n2)
 		{
 			n2n = n2[n2l] - '0';
 			res += ptr[n1l + n2l + 1] + (n1n * n2n);
-			printf("n1n: %i, n2n: %i, res: %i\n", n1n, n2n, res);
 			ptr[n1l + n2l + 1] = res % 10;
 			res /= 10;
 		}
+		if (res)
+			ptr[n1l + n2l + 1] = res % 10;
 	}
 	for (idx = 0; idx < total; idx++)
-		putchar(ptr[idx]);
-	putchar('\n');
+		_putchar(ptr[idx]);
+	_putchar('\n');
 	free(ptr);
 }
 
