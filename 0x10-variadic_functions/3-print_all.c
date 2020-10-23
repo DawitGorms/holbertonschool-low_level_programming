@@ -4,6 +4,7 @@
  * printChar - prints character
  * @separator: the separator
  * @ap: the argument
+ * Return: void.
  */
 void printChar(char *separator, va_list ap)
 {
@@ -14,6 +15,7 @@ void printChar(char *separator, va_list ap)
  * printInt - prints integer
  * @separator: the separator
  * @ap: the argument
+ * Return: void.
  */
 void printInt(char *separator, va_list ap)
 {
@@ -24,6 +26,7 @@ void printInt(char *separator, va_list ap)
  * printFloat - prints float
  * @separator: the separator
  * @ap: the argument
+ * Return: void.
  */
 void printFloat(char *separator, va_list ap)
 {
@@ -34,6 +37,7 @@ void printFloat(char *separator, va_list ap)
  * printStr - prints string
  * @separator: the separator
  * @ap: the argument
+ * Return: void.
  */
 void printStr(char *separator, va_list ap)
 {
