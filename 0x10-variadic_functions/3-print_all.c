@@ -75,7 +75,7 @@ void print_all(const char * const format, ...)
 			if (fDict[ddx].at[0] == format[fdx])
 			{
 				printf("%s", sep);
-				fDict[ddx].f(ap);
+				fDict[ddx].fct(ap);
 				sep = ", ";
 			}
 			ddx++;
