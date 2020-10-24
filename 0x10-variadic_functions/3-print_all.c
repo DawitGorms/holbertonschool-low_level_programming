@@ -62,7 +62,7 @@ void print_all(const char * const format, ...)
 		{"i", printInt},
 		{"f", printFloat},
 		{"s", printStr},
-		{NULL, NULL}
+		{NULL, NULL},
 	};
 
 	va_start(ap, format);
@@ -77,7 +77,6 @@ void print_all(const char * const format, ...)
 				printf("%s", sep);
 				fDict[ddx].f(ap);
 				sep = ", ";
-				break;
 			}
 			ddx++;
 		}
