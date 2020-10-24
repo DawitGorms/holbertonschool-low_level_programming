@@ -1,5 +1,7 @@
 #include "variadic_functions.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 /**
  * printChar - prints character
  * @ap: the argument
@@ -42,7 +44,10 @@ void printStr(va_list ap)
 	if (str)
 		printf("%s", str);
 	else
+	{
 		printf("(nil)");
+		return;
+	}
 }
 
 /**
@@ -62,7 +67,7 @@ void print_all(const char * const format, ...)
 		{"i", printInt},
 		{"f", printFloat},
 		{"s", printStr},
-		{NULL, NULL},
+		{NULL, NULL}
 	};
 
 	va_start(ap, format);
