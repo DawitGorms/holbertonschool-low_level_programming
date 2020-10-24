@@ -17,7 +17,7 @@ void printChar(va_list ap)
  */
 void printInt(va_list ap)
 {
-	printf("%i", va_arg(ap, int));
+	printf("%d", va_arg(ap, int));
 }
 
 /**
@@ -52,6 +52,7 @@ void printStr(va_list ap)
  */
 void print_all(const char * const format, ...)
 {
+	char *sep = "";
 	int fdx = 0;
 	int ddx;
 	va_list ap;
@@ -73,9 +74,9 @@ void print_all(const char * const format, ...)
 		{
 			if (fDict[ddx].at[0] == format[fdx])
 			{
+				printf("%s", sep);
 				fDict[ddx].f(ap);
-				if (format[fdx + 1])
-					printf(", ");
+				sep = ", ";
 			}
 			ddx++;
 		}
