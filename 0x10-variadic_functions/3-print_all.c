@@ -1,7 +1,5 @@
 #include "variadic_functions.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
+
 /**
  * printChar - prints character
  * @ap: the argument
@@ -77,7 +75,7 @@ void print_all(const char * const format, ...)
 		ddx = 0;
 		while (fDict[ddx].at)
 		{
-			if (fDict[ddx].at[0] == format[fdx])
+			if (*fDict[ddx].at == format[fdx])
 			{
 				printf("%s", sep);
 				fDict[ddx].f(ap);
