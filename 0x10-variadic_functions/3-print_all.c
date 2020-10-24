@@ -72,7 +72,7 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 
-	while (format && format[fdx])
+	while (format && format[fdx] != '\0')
 	{
 		ddx = 0;
 		while (fDict[ddx].at)

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <string.h>
 
 /**
  * struct argType - Struct argType
@@ -16,6 +17,8 @@ typedef struct argType
 	char *at;
 	void (*f)(va_list);
 } pType;
+
+int _putchar(char c);
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
