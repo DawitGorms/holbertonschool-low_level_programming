@@ -14,7 +14,7 @@
 typedef struct argType
 {
 	char *at;
-	void (*f)(va_list fct);
+	void (*f)(va_list ap);
 } pType;
 
 int sum_them_all(const unsigned int n, ...);
