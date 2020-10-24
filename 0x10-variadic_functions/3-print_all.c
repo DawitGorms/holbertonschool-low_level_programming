@@ -2,48 +2,47 @@
 
 /**
  * printChar - prints character
- * @separator: the separator
  * @ap: the argument
  * Return: void.
  */
-void printChar(char *separator, va_list ap)
+void printChar(va_list ap)
 {
-	printf("%s%c", separator, va_arg(ap, int));
+	printf("%c", va_arg(ap, int));
 }
 
 /**
  * printInt - prints integer
- * @separator: the separator
  * @ap: the argument
  * Return: void.
  */
-void printInt(char *separator, va_list ap)
+void printInt(va_list ap)
 {
-	printf("%s%i", separator, va_arg(ap, int));
+	printf("%i", va_arg(ap, int));
 }
 
 /**
  * printFloat - prints float
- * @separator: the separator
  * @ap: the argument
  * Return: void.
  */
-void printFloat(char *separator, va_list ap)
+void printFloat(va_list ap)
 {
-	printf("%s%f", separator, va_arg(ap, double));
+	printf("%f", va_arg(ap, double));
 }
 
 /**
  * printStr - prints string
- * @separator: the separator
  * @ap: the argument
  * Return: void.
  */
-void printStr(char *separator, va_list ap)
+void printStr(va_list ap)
 {
 	char *str = va_arg(ap, char *);
 
-	printf("%s%s", separator, str);
+	if (str)
+		printf("%s", str);
+	else
+		printf("(nil)");
 }
 
 /**
@@ -54,31 +53,31 @@ void printStr(char *separator, va_list ap)
 void print_all(const char * const format, ...)
 {
 	int fdx = 0;
-	int tdx;
-	char *separator = "";
+	int ddx;
 	va_list ap;
 
-	pType tFct[] = {
+	pType fDict[] = {
 		{"c", printChar},
 		{"i", printInt},
 		{"f", printFloat},
 		{"s", printStr},
-		{NULL, NULL}
+		{'\0', NULL}
 	};
 
 	va_start(ap, format);
 
 	while (format && format[fdx])
 	{
-		tdx = 0;
-		while (tFct[tdx].at)
+		ddx = 0;
+		while (fDict[ddx].at)
 		{
-			if (format[fdx] == tFct[tdx].at[0])
+			if (fDict[ddx].at[0] == format[fdx])
 			{
-				tFct[tdx].f(separator, ap);
-				separator = ", ";
+				fDict[ddx].f(ap);
+				if (format[fdx + 1])
+					printf(", ");
 			}
-			tdx++;
+			ddx++;
 		}
 		fdx++;
 	}
