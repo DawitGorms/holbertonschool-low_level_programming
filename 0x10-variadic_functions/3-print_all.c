@@ -77,6 +77,7 @@ void print_all(const char * const format, ...)
 				printf("%s", sep);
 				fDict[ddx].f(ap);
 				sep = ", ";
+				break;
 			}
 			ddx++;
 		}

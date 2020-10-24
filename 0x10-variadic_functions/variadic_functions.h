@@ -14,17 +14,12 @@
 typedef struct argType
 {
 	char *at;
-	void (*f)(va_list ap);
+	void (*f)();
 } pType;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
-
-void printChar(va_list ap);
-void printInt(va_list ap);
-void printFloat(va_list ap);
-void printStr(va_list ap);
 
 #endif /* VARIADIC_FUNCTIONS_H */
