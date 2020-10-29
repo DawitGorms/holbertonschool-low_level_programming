@@ -34,6 +34,14 @@ What you should learn from this project:
 ### [4. Free list](./4-free_list.c)
 * Write a function that frees a list_t list.
 
+
+### [5. The Hare and the Tortoise](./100-first.c)
+* 
+
+
+### [6. Real programmers can write assembly code in any language](./101-hello_holberton.asm)
+* Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
+
 ---
 
 ## Author
