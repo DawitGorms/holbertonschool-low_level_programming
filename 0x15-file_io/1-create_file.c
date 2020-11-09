@@ -1,22 +1,6 @@
 #include "holberton.h"
 
 /**
- *_strlen - counts and reutns string length
- * @s: the input string
- *
- * Return: the length
- */
-int _strlen(char *s)
-{
-	int c;
-
-	for (c = 0; *s; c++)
-		s++;
-
-	return (c);
-}
-
-/**
  * create_file - creates a file.
  * @filename: the name of the file to create
  * @text_content: a NULL terminated string to write to the file
@@ -25,7 +9,7 @@ int _strlen(char *s)
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	int bytes = 0, len = _strlen(text_content);
+	int bytes = 0, len = strlen(text_content);
 
 	if (!filename)
 		return (-1);
