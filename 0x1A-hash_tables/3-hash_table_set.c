@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (!strcmp(key, search->key))
 		{
-			free(search->key);
+			free(search->value);
 			search->value = valueCpy;
 			return (1);
 		}
