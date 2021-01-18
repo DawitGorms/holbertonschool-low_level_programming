@@ -113,3 +113,63 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 
 }
+
+/**
+ * shash_table_get - retrieves a value associated with a key.
+ * @ht: the hash table to look into
+ * @key: the key to look for
+ *
+ * Return: the value associated, or NULL if the key couldn't be found
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	shash_node_t *search = NULL;
+	unsigned long int idx;
+
+	if (!ht || !key || !*key)
+		return (NULL);
+
+	idx = key_index((unsigned char *)key, ht->size);
+	search = ht->array[idx];
+
+	while (search)
+	{
+		if (!strcmp(key, search->key))
+		{
+			return (search->value);
+		}
+		search = search->next;
+	}
+	return (NULL);
+}
+
+
+/**
+ * shash_table_delete - deletes a hash table
+ * @ht: the hash table to delete
+ *
+ * Return: void
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	shash_node_t *current, *tmp;
+	unsigned long int idx;
+
+	if (!ht)
+		return;
+
+	for (idx = 0; idx < ht->size; idx++)
+	{
+		current = ht->array[idx];
+		while (current)
+		{
+			tmp = current;
+			current = current->next;
+			free(tmp->key);
+			free(tmp->value);
+			free(tmp);
+		}
+	}
+	free(ht->array);
+	free(ht);
+}
