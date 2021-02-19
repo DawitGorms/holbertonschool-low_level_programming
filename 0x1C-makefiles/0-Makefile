@@ -1,0 +1,4 @@
+CC=gcc
+
+all: holberton
+	$(CC) main.c holberton.c -o holberton
