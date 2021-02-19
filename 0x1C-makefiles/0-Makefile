@@ -1,4 +1,2 @@
-CC=gcc
-
-all: holberton
-	$(CC) main.c holberton.c -o holberton
+all: holberton.c main.c
+	gcc main.c holberton.c -o holberton
