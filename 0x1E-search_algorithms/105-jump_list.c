@@ -39,10 +39,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		printf("Value checked at index [%lu] = [%d]\n",
 		       cur->index, cur->n);
 
-		if (!cur->next)
-			return (NULL);
-		else
+		if (cur->next)
 			cur = cur->next;
+		else
+			return (NULL);
 	}
 	if (cur->n == value)
 		return (printf("Value checked at index [%lu] = [%d]\n",
